@@ -6,9 +6,11 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -26,12 +28,19 @@ public class HelloApplication extends Application {
 
         //Image icon = new Image("src/Images/backgroundImage.jpg");
 
+        ImageView myImageView = new ImageView();
+
+        File backgroundFile = new File("src/Images/backgroundImage.jpg");
+        Image icon = new Image(backgroundFile.toURI().toString());
+        myImageView.setImage(icon);
+
+
         stage.setHeight(720);
         stage.setWidth(1080);
         stage.setResizable(false);
 
-        //stage.getIcons().add(icon);
-        stage.setTitle("Fibonacci Sequence");
+        stage.getIcons().add(icon);
+        stage.setTitle("Benchmark Application");
         stage.setScene(scene);
         stage.show();
     }
