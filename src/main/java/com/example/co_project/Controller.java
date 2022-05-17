@@ -34,7 +34,8 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL URL, ResourceBundle resourceBundle){
-        File backgroundFile = new File("/Images/MonalisaImage.jpg");
+        File backgroundFile = new File("src/Images/MonalisaImage.jpg");
+        //File backgroundFile = new File("Images/MonalisaImage.jpg");
         Image myImage = new Image(backgroundFile.toURI().toString());
         myImageView.setImage(myImage);
     }
