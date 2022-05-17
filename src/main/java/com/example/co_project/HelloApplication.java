@@ -22,20 +22,15 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws Exception {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main.fxml")));
+        Scene scene = new Scene(root, 1080, 720, Color.rgb(232, 232, 232));  //adding the root to teh scene
 
-        //Stage stage = new Stage();
-        //Group root = new Group(); //this is how we declare a root node
-        Scene scene = new Scene(root, Color.rgb(232, 232, 232));  //adding the root to teh scene
-
-        Image background = new Image("C:\\Univeristy\\demo\\co_project\\src\\Images\\backgroundImage.jpg");
+        Image icon = new Image("C:\\Univeristy\\demo\\co_project\\src\\Images\\backgroundImage.jpg");
 
         stage.setHeight(720);
         stage.setWidth(1080);
         stage.setResizable(false);
 
-
-
-        stage.getIcons().add(background);
+        stage.getIcons().add(icon);
         stage.setTitle("Fibonacci Sequence");
         stage.setScene(scene);
         stage.show();

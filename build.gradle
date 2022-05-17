@@ -38,6 +38,7 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation group: 'com.github.oshi', name: 'oshi-core', version: '5.3.4'
 }
 
 test {
