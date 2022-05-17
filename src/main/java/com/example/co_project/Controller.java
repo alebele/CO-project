@@ -9,6 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import java.io.File;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -34,7 +36,7 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL URL, ResourceBundle resourceBundle){
-        File backgroundFile = new File("/Images/MonalisaImage.jpg");
+        File backgroundFile = new File("src/Images/MonalisaImage.jpg");
         Image myImage = new Image(backgroundFile.toURI().toString());
         myImageView.setImage(myImage);
     }
