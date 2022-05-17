@@ -21,16 +21,6 @@ public class Controller implements Initializable{
     public Button ram_button;
     public Button cpu_button;
 
-    /*
-    public ImageView myImageView;
-    public Image myImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Images/MonalisaImage.jpg")));
-
-    public void display(){
-        myImageView.setImage(myImage);
-    }
-     */
-
-
     @FXML
     private ImageView myImageView;
 
