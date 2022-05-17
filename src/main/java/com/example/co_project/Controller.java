@@ -23,7 +23,6 @@ public class Controller implements Initializable{
     @FXML
     private Button cpu_button;
 
-
     @FXML
     private ImageView myImageView;
 
