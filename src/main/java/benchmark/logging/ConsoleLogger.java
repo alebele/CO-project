@@ -1,26 +1,26 @@
 package benchmark.logging;
 
 public class ConsoleLogger implements ILogger{
-    public void write(String s){
-        System.out.println(s);
-    }
-    public void writeTime(long value, TimeUnit unit){
+    public String writeTime(long value, TimeUnit unit){
+        String str="";
         switch(unit){
             case NANO:
-                System.out.println("The time taken for the algorithm is "+value+" ns");
+                str+=value+" ns";
                 break;
             case MICRO:
-                System.out.println("The time taken for the algorithm is "+value/Math.pow(10,3)+" microseconds");
+                str+=value/Math.pow(10,3)+" microseconds";
                 break;
             case MILI:
-                System.out.println("The time taken for the algorithm is "+value/Math.pow(10,6)+" miliseconds");
+                str+=value/Math.pow(10,6)+" miliseconds";
                 break;
             case SEC:
-                System.out.println("The time taken for the algorithm is "+value/Math.pow(10,9)+" seconds");
+                str+=value/Math.pow(10,9)+" seconds";
                 break;
         }
+        return str;
     }
-    public void writeTime( String str,long value, TimeUnit unit){
+   /* public String writeTime( String str,long value, TimeUnit unit){
+        String str2="";
         switch(unit){
             case NANO:
                 System.out.println(str+" "+value+" ns");
@@ -35,7 +35,9 @@ public class ConsoleLogger implements ILogger{
                 System.out.println(str+" "+value/Math.pow(10,9)+" seconds");
                 break;
         }
-    }
+      }
+        return str2;
+    }*/
     public void close(){
 
     }

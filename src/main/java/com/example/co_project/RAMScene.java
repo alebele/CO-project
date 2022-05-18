@@ -57,7 +57,13 @@ public class RAMScene implements Initializable {
         try{
             no = Integer.parseInt(inputTextField.getText());
             if(no>=0){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResultRAMScene.fxml")));
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("ResultRAMScene.fxml"));
+                root=loader.load();
+
+                ResultRAMScene scene2=loader.getController();
+                scene2.displayRAM(no);
+
+                //root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResultRAMScene.fxml")));
                 Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);

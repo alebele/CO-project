@@ -11,7 +11,6 @@ public class CPUBenchmark implements IBenchmark{
         int nextNo=1;
         int i=1;
         while(i<=50){
-            //System.out.print(prevNo+" ");
             result+=String.valueOf(prevNo)+" ";
             int sum=prevNo+nextNo;
             prevNo=nextNo;
@@ -25,9 +24,13 @@ public class CPUBenchmark implements IBenchmark{
         int prevNo=0;
         int nextNo=1;
         int i=1;
-        while(i<=noOfElements){
-            //System.out.print(prevNo+" ");
-            result+=String.valueOf(prevNo)+" ";
+        while(i<=noOfElements && running){
+            if(i%17==0){
+                result+=String.valueOf(prevNo)+"\n";
+            }
+            else{
+                result+=String.valueOf(prevNo)+", ";
+            }
             int sum=prevNo+nextNo;
             prevNo=nextNo;
             nextNo=sum;
@@ -35,15 +38,9 @@ public class CPUBenchmark implements IBenchmark{
         }
     }
 
-    public void initialize(Object noOfElements){
-        if((Integer)noOfElements>=0){
-            this.noOfElements=(Integer)noOfElements;
+    public void initialize(int noOfElements){
+            this.noOfElements=noOfElements;
             running=true;
-        }
-        else{
-            System.out.println("Wrong input!");
-            running=false;
-        }
     }
 
     public void clean(){

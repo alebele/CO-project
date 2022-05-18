@@ -61,7 +61,12 @@ public class CPUScene implements Initializable {
         try{
             no = Integer.parseInt(inputTextFiled.getText());
             if(no>=0){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResultCPUScene.fxml")));
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("ResultCPUScene.fxml"));
+                root=loader.load();
+
+                ResultCPUScene scene2=loader.getController();
+                scene2.displayFib(no);
+                //root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResultCPUScene.fxml")));
                 Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
