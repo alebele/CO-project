@@ -16,16 +16,16 @@
             <Image url="@../../../../../Images/InfoImage.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="osType" layoutX="520.0" layoutY="278.0" prefHeight="60.0" prefWidth="530.0" style="-fx-background-color: #6F4E37;" textFill="WHITE">
+      <Label fx:id="osType" layoutX="508.0" layoutY="278.0" prefHeight="60.0" prefWidth="551.0" style="-fx-background-color: #6F4E37;" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="18.0" />
          </font></Label>
-      <Label fx:id="cpuType" layoutX="520.0" layoutY="398.0" prefHeight="140.0" prefWidth="530.0" style="-fx-background-color: #6F4E37;" textFill="WHITE">
+      <Label fx:id="cpuType" layoutX="508.0" layoutY="398.0" prefHeight="140.0" prefWidth="551.0" style="-fx-background-color: #6F4E37;" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="ramType" layoutX="520.0" layoutY="338.0" prefHeight="60.0" prefWidth="530.0" style="-fx-background-color: #6F4E37;" textFill="WHITE">
+      <Label fx:id="ramType" layoutX="508.0" layoutY="338.0" prefHeight="60.0" prefWidth="551.0" style="-fx-background-color: #6F4E37;" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="18.0" />
          </font>

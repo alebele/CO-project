@@ -33,6 +33,38 @@ public class CPUScene implements Initializable {
     @FXML
     private Parent root;
 
+    @FXML
+    private Button startButton;
+
+    @FXML
+    private TextField inputTextFiled;
+
+    private int no;
+
+    public void startInit(ActionEvent event){
+        try{
+            no = Integer.parseInt(inputTextFiled.getText());
+            if(no<0){
+                System.out.println("User input was not a number!");
+            }
+            else {
+                System.out.println("Your number is " + no+ ".");
+            }
+        }catch (Exception e){
+            System.out.println("User input was not a number!");
+        }
+    }
+
+    public void switchToTheWrongInputScene(ActionEvent event) throws IOException{
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputScene.fxml")));
+        Stage stage = (Stage)inputTextFiled.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
     public void initialize(URL URL, ResourceBundle resourceBundle){
         File backgroundFile = new File("src/Images/EnterNumber.jpg");
         Image myImage = new Image(backgroundFile.toURI().toString());

@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -35,12 +36,16 @@ public class Controller implements Initializable{
     @FXML
     private Parent root;
 
+    @FXML
+    private AnchorPane scene_01;
+
     @Override
     public void initialize(URL URL, ResourceBundle resourceBundle){
         File backgroundFile = new File("src/Images/MonalisaImage.jpg");
         Image myImage = new Image(backgroundFile.toURI().toString());
         myImageView.setImage(myImage);
     }
+
 
     public void switchToInfoScene(ActionEvent event) throws IOException{
 
