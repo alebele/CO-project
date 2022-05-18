@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -31,12 +33,16 @@ public class RAMScene implements Initializable {
     @FXML
     private Parent root;
 
+    @FXML
+    private TextField inputTextField;
+
     public void initialize(URL URL, ResourceBundle resourceBundle){
         File backgroundFile = new File("src/Images/RAMImage.jpg");
         Image myImage = new Image(backgroundFile.toURI().toString());
         RAMImageView.setImage(myImage);
     }
 
+    private int no;
     public void switchToMainScene(ActionEvent event) throws IOException {
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainScene.fxml")));
@@ -44,5 +50,31 @@ public class RAMScene implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void switchToTheNextScene(ActionEvent event) throws IOException{
+
+        try{
+            no = Integer.parseInt(inputTextField.getText());
+            if(no>=0){
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResultRAMScene.fxml")));
+                Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            }
+            else {
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputRAMScene.fxml")));
+                Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+            }
+        }catch (NumberFormatException e){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputRAMScene.fxml")));
+            Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+        }
     }
 }

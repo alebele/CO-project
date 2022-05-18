@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class WrongInputScene implements Initializable {
+public class WrongInputRAMScene implements Initializable {
 
     @FXML
     private ImageView WrongInputImage;
@@ -37,8 +37,8 @@ public class WrongInputScene implements Initializable {
         WrongInputImage.setImage(myImage);
     }
 
-    public void switchToCPUScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CPUScene.fxml")));
+    public void switchToRAMScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RAMScene.fxml")));
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

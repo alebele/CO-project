@@ -69,13 +69,13 @@ public class CPUScene implements Initializable {
 
             }
             else {
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputScene.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputCPUScene.fxml")));
                 Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
             }
         }catch (NumberFormatException e){
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputScene.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputCPUScene.fxml")));
             Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
