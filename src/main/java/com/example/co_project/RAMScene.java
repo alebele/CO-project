@@ -17,10 +17,10 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class WrongInputScene implements Initializable {
+public class RAMScene implements Initializable {
 
     @FXML
-    private ImageView WrongInputImage;
+    private ImageView RAMImageView;
 
     @FXML
     private Stage stage;
@@ -32,13 +32,14 @@ public class WrongInputScene implements Initializable {
     private Parent root;
 
     public void initialize(URL URL, ResourceBundle resourceBundle){
-        File backgroundFile = new File("src/Images/WrongInputImage.jpg");
+        File backgroundFile = new File("src/Images/RAMImage.jpg");
         Image myImage = new Image(backgroundFile.toURI().toString());
-        WrongInputImage.setImage(myImage);
+        RAMImageView.setImage(myImage);
     }
 
-    public void switchToCPUScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CPUScene.fxml")));
+    public void switchToMainScene(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainScene.fxml")));
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

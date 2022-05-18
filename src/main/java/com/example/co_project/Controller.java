@@ -46,7 +46,6 @@ public class Controller implements Initializable{
         myImageView.setImage(myImage);
     }
 
-
     public void switchToInfoScene(ActionEvent event) throws IOException{
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("InfoScene.fxml")));
@@ -63,4 +62,14 @@ public class Controller implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
+
+    public void switchToRAMScene(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RAMScene.fxml")));
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
 }

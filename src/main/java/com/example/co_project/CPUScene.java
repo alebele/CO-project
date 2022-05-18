@@ -41,30 +41,6 @@ public class CPUScene implements Initializable {
 
     private int no;
 
-    public void startInit(ActionEvent event){
-        try{
-            no = Integer.parseInt(inputTextFiled.getText());
-            if(no<0){
-                System.out.println("User input was not a number!");
-            }
-            else {
-                System.out.println("Your number is " + no+ ".");
-            }
-        }catch (Exception e){
-            System.out.println("User input was not a number!");
-        }
-    }
-
-    public void switchToTheWrongInputScene(ActionEvent event) throws IOException{
-
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputScene.fxml")));
-        Stage stage = (Stage)inputTextFiled.getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
     public void initialize(URL URL, ResourceBundle resourceBundle){
         File backgroundFile = new File("src/Images/EnterNumber.jpg");
         Image myImage = new Image(backgroundFile.toURI().toString());
@@ -78,6 +54,32 @@ public class CPUScene implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void switchToTheNextScene(ActionEvent event) throws IOException{
+
+        try{
+            no = Integer.parseInt(inputTextFiled.getText());
+            if(no>=0){
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResultCPUScene.fxml")));
+                Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            }
+            else {
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputScene.fxml")));
+                Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+            }
+        }catch (NumberFormatException e){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WrongInputScene.fxml")));
+            Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+        }
     }
 
 }
