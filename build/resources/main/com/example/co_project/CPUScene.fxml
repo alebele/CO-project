@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.co_project.CPUScene">
+   <children>
+      <ImageView fx:id="ImageViewCPU" fitHeight="720.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Images/EnterNumber.jpg" />
+         </image></ImageView>
+      <Button layoutX="900.0" layoutY="610.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #6B8E23;" text="Go back!" textFill="#dae8ba">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Text fill="#1d4a15" layoutX="714.0" layoutY="122.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the number of elements from Fibonacci Sequence:" textAlignment="CENTER" wrappingWidth="351.85888671875">
+         <font>
+            <Font name="SansSerif Bold" size="28.0" />
+         </font>
+      </Text>
+      <TextField layoutX="720.0" layoutY="207.0" prefHeight="40.0" prefWidth="228.0" promptText="ex. 50" style="-fx-background-color: #6B8E23;">
+         <font>
+            <Font name="SansSerif Italic" size="18.0" />
+         </font>
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="0.3552631437778473" green="0.3240131437778473" blue="0.3240131437778473" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </TextField>
+      <Button layoutX="948.0" layoutY="207.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="81.0" style="-fx-background-color: #6B8E23;" text="START" textFill="#dae8ba">
+         <font>
+            <Font name="SansSerif Bold" size="14.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

@@ -8,21 +8,21 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.co_project.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.co_project.Controller">
    <children>
-      <ImageView fx:id="myImageView" fitHeight="725.0" fitWidth="1465.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="-7.5">
+      <ImageView fx:id="myImageView" fitHeight="725.0" fitWidth="1465.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Images/MonalisaImage.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="cpu_button" layoutX="109.0" layoutY="549.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #008000;" text="CPU" textFill="WHITE">
+      <Button fx:id="cpu_button" layoutX="109.0" layoutY="549.0" mnemonicParsing="false" onAction="#switchToCPUScene" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #008000;" text="CPU" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
          <effect>
             <InnerShadow>
                <color>
-                  <Color red="0.8947368264198303" green="0.84917151927948" blue="0.84917151927948" />
+                  <Color blue="0.84917151927948" green="0.84917151927948" red="0.8947368264198303" />
                </color>
             </InnerShadow>
          </effect>
@@ -34,19 +34,19 @@
          <effect>
             <InnerShadow>
                <color>
-                  <Color red="0.9210526347160339" green="0.8784112930297852" blue="0.8784112930297852" />
+                  <Color blue="0.8784112930297852" green="0.8784112930297852" red="0.9210526347160339" />
                </color>
             </InnerShadow>
          </effect>
       </Button>
-      <Button fx:id="info_button" layoutX="749.0" layoutY="549.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #FFA500;" text="INFO" textFill="WHITE" textOverrun="CLIP">
+      <Button fx:id="info_button" layoutX="749.0" layoutY="549.0" mnemonicParsing="false" onAction="#switchToInfoScene" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #FFA500;" text="INFO" textFill="WHITE" textOverrun="CLIP">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
          <effect>
             <InnerShadow>
                <color>
-                  <Color red="0.9210526347160339" green="0.8570906519889832" blue="0.8570906519889832" />
+                  <Color blue="0.8570906519889832" green="0.8570906519889832" red="0.9210526347160339" />
                </color>
             </InnerShadow>
          </effect>
