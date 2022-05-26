@@ -48,8 +48,11 @@ public class ResultCPUScene implements Initializable {
 
     @FXML
     private ImageView ResultImageView;
+    private static double cycles;
+    private static double runtime;
 
-    public void displayFib(int no){
+    public void displayFib(int no,int checkTime){
+        cycles = no;
         IBenchmark bench = new CPUBenchmark();
         ITimer timer = new Timer();
         ILogger logger = new ConsoleLogger();
@@ -57,14 +60,17 @@ public class ResultCPUScene implements Initializable {
         bench.initialize(no);
         bench.warmUp();
         timer.start();
-        bench.run();
+        bench.run(checkTime);
         long time = timer.stop();
+        runtime = time;
         String timeMessage = logger.writeTime(time, timeUnit);
         String result = bench.getResult();
-       /* cpuTextArea.setEditable(false);
-        cpuTextArea.setText(result);*/
         fibLabel.setText(result);
         execLabel.setText(timeMessage);
+    }
+
+    public static double displayScore(){
+        return cycles/runtime;
     }
 
     public void initialize(URL URL, ResourceBundle resourceBundle){
@@ -75,6 +81,15 @@ public class ResultCPUScene implements Initializable {
     public void switchToMainScene(ActionEvent event) throws IOException {
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainScene.fxml")));
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchScoreScene(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("visual.fxml")));
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

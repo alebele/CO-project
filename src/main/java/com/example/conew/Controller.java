@@ -30,8 +30,6 @@ public class Controller implements Initializable{
     @FXML
     private ImageView myImageView;
     @FXML
-    private Stage stage;
-    @FXML
     private Scene scene;
     @FXML
     private Parent root;

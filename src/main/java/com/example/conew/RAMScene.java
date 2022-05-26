@@ -22,10 +22,10 @@ import java.util.ResourceBundle;
 public class RAMScene implements Initializable {
 
     @FXML
-    private ImageView RAMImageView;
+    public TextField inputTextFiled;
 
     @FXML
-    private Stage stage;
+    private ImageView RAMImageView;
 
     @FXML
     private Scene scene;
@@ -36,8 +36,14 @@ public class RAMScene implements Initializable {
     @FXML
     private TextField inputTextField;
 
+    @FXML
+    private TextField secondsTextField;
+
+    @FXML
+    private TextField cellsTextField;
+
     public void initialize(URL URL, ResourceBundle resourceBundle){
-        Image myImage=new Image(getClass().getResourceAsStream("RAMImage.jpg"));
+        Image myImage=new Image(Objects.requireNonNull(getClass().getResourceAsStream("RAMImage.jpg")));
         RAMImageView.setImage(myImage);
     }
 
@@ -51,16 +57,21 @@ public class RAMScene implements Initializable {
         stage.show();
     }
 
+    private int cells;
+    private int checkTime;
+
     public void switchToTheNextScene(ActionEvent event) throws IOException{
 
         try{
             no = Integer.parseInt(inputTextField.getText());
+            cells = Integer.parseInt(cellsTextField.getText());
+            checkTime = Integer.parseInt(secondsTextField.getText());
             if(no>=0){
                 FXMLLoader loader=new FXMLLoader(getClass().getResource("ResultRAMScene.fxml"));
                 root=loader.load();
 
                 ResultRAMScene scene2=loader.getController();
-                scene2.displayRAM(no);
+                scene2.displayRAM(no,cells,checkTime);
 
                 //root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResultRAMScene.fxml")));
                 Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();

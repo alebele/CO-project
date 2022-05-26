@@ -1,8 +1,11 @@
 package benchmark.bench;
 
+import benchmark.timing.ITimer;
+import benchmark.timing.Timer;
+
 public class RAMBenchmark implements IBenchmark {
     private boolean running;
-    private int cellsWritten = 10000;
+    private int cellsWritten;
     private String flag;
     private double cycles;
     private byte bytearray[];
@@ -31,9 +34,16 @@ public class RAMBenchmark implements IBenchmark {
 
 
 
-    public void run(){
+    public void run(int time){
+        ITimer timer = new Timer();
+        timer.start();
+        long check;
         int k=0;
-        while(k<cycles){
+        while(k<cycles && running){
+            check=timer.stop();
+            if(check>=time){
+                running=false;
+            }
             if(k%2==0){
                 for(int i=0;i<cellsWritten && running;i++){
                     if(bytearray[i]!=1){
@@ -55,9 +65,14 @@ public class RAMBenchmark implements IBenchmark {
     }
 
     public void initialize(int noOfElements){
+
+    }
+
+    public void initialize(int noOfElements,int cellsWritten){
         double y;
         y=((Number)noOfElements).doubleValue();
-        cycles=Math.pow(10,y);
+        cycles=y;
+        this.cellsWritten=cellsWritten;
         bytearray=new byte[cellsWritten];
         for(int i=0;i<cellsWritten;i++){
             bytearray[i]=1;

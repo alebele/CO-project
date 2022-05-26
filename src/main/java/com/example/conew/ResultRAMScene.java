@@ -46,21 +46,28 @@ public class ResultRAMScene implements Initializable {
     @FXML
     private ImageView ResultImageView;
 
-    public void displayRAM(int no){
+    private static double ramScore;
+
+    public void displayRAM(int no,int cellsWritten,int checkTime){
         IBenchmark bench = new RAMBenchmark();
         ITimer timer = new Timer();
         ILogger logger = new ConsoleLogger();
         TimeUnit timeUnit = TimeUnit.SEC;
-        bench.initialize(no);
+        bench.initialize(no,cellsWritten);
         bench.warmUp();
         timer.start();
-        bench.run();
+        bench.run(checkTime);
         long time = timer.stop();
-        double formula = (10000 * Math.pow(10,no)) / (time/Math.pow(10,9));
+        double formula = (cellsWritten*no) / (time/Math.pow(10,9));
+        ramScore = formula *10;
         String timeMessage = logger.writeTime(time, timeUnit);
         String result = bench.getResult();
         accurancyLabel.setText(result);
         resultLabel.setText(""+formula);
+    }
+
+    public static double getRamScore(){
+        return ramScore;
     }
 
 
@@ -72,6 +79,15 @@ public class ResultRAMScene implements Initializable {
     public void switchToMainScene(ActionEvent event) throws IOException {
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainScene.fxml")));
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToScoreScene(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("visual.fxml")));
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -22,7 +22,10 @@ import java.util.ResourceBundle;
 public class CPUScene implements Initializable {
 
     @FXML
-    public ImageView ImageViewCPU;
+    private TextField inputSecondsTextField;
+
+    @FXML
+    private ImageView ImageViewCPU;
 
     @FXML
     private Stage stage;
@@ -40,6 +43,8 @@ public class CPUScene implements Initializable {
     private TextField inputTextFiled;
 
     private int no;
+
+    private int time;
 
     public void initialize(URL URL, ResourceBundle resourceBundle){
         Image myImage=new Image(getClass().getResourceAsStream("EnterNumber.jpg"));
@@ -59,13 +64,14 @@ public class CPUScene implements Initializable {
 
         try{
             no = Integer.parseInt(inputTextFiled.getText());
+            time =Integer.parseInt(inputSecondsTextField.getText());
 
-            if(no>=0){
+            if(no>=0 && time>0){
                 FXMLLoader loader=new FXMLLoader(getClass().getResource("ResultCPUScene.fxml"));
                 root=loader.load();
 
                 ResultCPUScene scene2=loader.getController();
-                scene2.displayFib(no);
+                scene2.displayFib(no,time);
                 //root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResultCPUScene.fxml")));
                 Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
