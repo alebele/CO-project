@@ -7,7 +7,7 @@ public class RAMBenchmark implements IBenchmark {
     private boolean running;
     private int cellsWritten;
     private String flag;
-    private double cycles;
+    private int cycles;
     private byte bytearray[];
 
     public void warmUp() {
@@ -69,9 +69,8 @@ public class RAMBenchmark implements IBenchmark {
     }
 
     public void initialize(int noOfElements,int cellsWritten){
-        double y;
-        y=((Number)noOfElements).doubleValue();
-        cycles=y;
+        double cycles;
+        cycles=noOfElements;
         this.cellsWritten=cellsWritten;
         bytearray=new byte[cellsWritten];
         for(int i=0;i<cellsWritten;i++){

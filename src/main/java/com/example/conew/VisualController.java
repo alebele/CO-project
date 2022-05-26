@@ -38,7 +38,7 @@ public class VisualController implements Initializable {
     private ImageView thisImageView;
 
     public void initialize(URL URL, ResourceBundle resourceBundle){
-        Image myImage=new Image(getClass().getResourceAsStream("tests.png"));
+        Image myImage=new Image(getClass().getResourceAsStream("testFinal.png"));
         thisImageView.setImage(myImage);
         cpuScoreLabel.setText(""+ResultCPUScene.displayScore());
         ramScoreLabel.setText(""+ResultRAMScene.getRamScore());
